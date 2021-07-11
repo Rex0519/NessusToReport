@@ -28,7 +28,6 @@
 #                       '.:::::'                    ':'````..
 # ------------------------------------------------------------
 
-from docx import Document
 
 import logging
 import platform

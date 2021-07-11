@@ -1,24 +1,35 @@
 {
-    "30218": {
-        "name_en": "Terminal Services Encryption Level is not FIPS-140 Compliant",
-        "name_cn": "",
-        "risk_en": "Low",
-        "risk_cn": "低危",
-        "describe_en": "The encryption setting used by the remote Terminal Services service is not FIPS-140 compliant.",
-        "describe_cn": "",
-        "solution_en": "Change RDP encryption level to : 4. FIPS Compliant",
-        "solution_cn": "",
+    "73756": {
+        "name_en": "Microsoft SQL Server Unsupported Version Detection (remote check)",
+        "name_cn": "Microsoft SQL Server不支持的版本检测（远程检查）",
+        "risk_en": "Critical",
+        "risk_cn": "紧急",
+        "describe_en": "According to its self-reported version number, the installation of Microsoft SQL Server on the remote host is no longer supported. Lack of support implies that no new security patches for the product will be released by the vendor. As a result, it is likely to contain security vulnerabilities.",
+        "describe_cn": "根据其自我报告的版本号，不再支持在远程主机上安装Microsoft SQL Server。缺少支持意味着供应商不会发布产品的新安全修补程序。因此，它很可能包含安全漏洞。",
+        "solution_en": "Upgrade to a version of Microsoft SQL Server that is currently supported.",
+        "solution_cn": "升级到当前支持的Microsoft SQL Server版本。",
         "cve": ""
     },
-    "999999": {
-        "name_en": "Microsoft Windows SMBv1 Multiple Vulnerabilities",
-        "name_cn": "",
-        "risk_en": "High",
-        "risk_cn": "高危",
-        "describe_en": "The remote Windows host has Microsoft Server Message Block 1.0 (SMBv1) enabled. It is, therefore, affected by multiple vulnerabilities : - Multiple information disclosure vulnerabilities exist in Microsoft Server Message Block 1.0 (SMBv1) due to improper handling of SMBv1 packets. An unauthenticated, remote attacker can exploit these vulnerabilities, via a specially crafted SMBv1 packet, to disclose sensitive information. (CVE-2017-0267, CVE-2017-0268, CVE-2017-0270, CVE-2017-0271, CVE-2017-0274, CVE-2017-0275, CVE-2017-0276) - Multiple denial of service vulnerabilities exist in Microsoft Server Message Block 1.0 (SMBv1) due to improper handling of requests. An unauthenticated, remote attacker can exploit these vulnerabilities, via a specially crafted SMB request, to cause the system to stop responding. (CVE-2017-0269, CVE-2017-0273, CVE-2017-0280) - Multiple remote code execution vulnerabilities exist in Microsoft Server Message Block 1.0 (SMBv1) due to improper handling of SMBv1 packets. An unauthenticated, remote attacker can exploit these vulnerabilities, via a specially crafted SMBv1 packet, to execute arbitrary code. (CVE-2017-0272, CVE-2017-0277, CVE-2017-0278, CVE-2017-0279) Depending on the host's security policy configuration, this plugin cannot always correctly determine if the Windows host is vulnerable if the host is running a later Windows version (i.e., Windows 8.1, 10, 2012, 2012 R2, and 2016) specifically that named pipes and shares are allowed to be accessed remotely and anonymously. Tenable does not recommend this configuration, and the hosts should be checked locally for patches with one of the following plugins, depending on the Windows version : 100054, 100055, 100057, 100059, 100060, or 100061.",
-        "describe_cn": "",
-        "solution_en": "Apply the applicable security update for your Windows version : - Windows Server 2008 : KB4018466 - Windows 7 : KB4019264 - Windows Server 2008 R2 : KB4019264 - Windows Server 2012 : KB4019216 - Windows 8.1 / RT 8.1. : KB4019215 - Windows Server 2012 R2 : KB4019215 - Windows 10 : KB4019474 - Windows 10 Version 1511 : KB4019473 - Windows 10 Version 1607 : KB4019472 - Windows 10 Version 1703 : KB4016871 - Windows Server 2016 : KB4019472",
-        "solution_cn": "",
-        "cve": "CVE-2017-0279"
+    "17764": {
+        "name_en": "OpenSSL < 0.9.8k Signature Repudiation",
+        "name_cn": "OpenSSL<0.9.8k签名否认",
+        "risk_en": "Low",
+        "risk_cn": "低危",
+        "describe_en": "According to its banner, the remote server is running a version of OpenSSL that is earlier than 0.9.8k. As such, it may allow a valid sign to generate invalid signatures which would appear valid and could be repudiated later. This only affects CMS users. CMS appeared in OpenSSL 0.9.8h.",
+        "describe_cn": "根据它的横幅，远程服务器运行的是早于0.9.8k的OpenSSL版本。因此，它可以允许有效的签名生成无效的签名，这些签名看起来是有效的，并且可以在以后被拒绝。这只影响CMS用户。CMS出现在openssl0.9.8h中。",
+        "solution_en": "Upgrade to OpenSSL 0.9.8k or later.",
+        "solution_cn": "升级至OpenSSL 0.9.8k或更高版本。",
+        "cve": "CVE-2009-0591"
+    },
+    "81576": {
+        "name_en": "Jetty HttpParser Error Remote Memory Disclosure",
+        "name_cn": "Jetty HttpParser错误远程内存泄漏",
+        "risk_en": "Medium",
+        "risk_cn": "中危",
+        "describe_en": "The remote instance of Jetty is affected by a remote memory disclosure vulnerability in the HttpParser module due to incorrect handling of illegal characters in header values. When an illegal character is encountered in an HTTP request, Jetty writes a response in a shared buffer that was used in a previous request. Jetty's response to the client includes this shared buffer which contains potentially sensitive data from the previous request. An attacker, using specially crafted requests containing variable length strings of illegal characters, can steal sensitive header data (e.g. cookies, authentication tokens) or sensitive POST data (e.g. credentials).",
+        "describe_cn": "Jetty的远程实例受到HttpParser模块中远程内存泄漏漏洞的影响，该漏洞是由于头值中非法字符的处理不正确造成的。当HTTP请求中遇到非法字符时，Jetty会在前一个请求中使用的共享缓冲区中写入响应。Jetty对客户机的响应包括这个共享缓冲区，其中包含来自上一个请求的潜在敏感数据。攻击者使用包含可变长度非法字符字符串的巧尽心思构建的请求，可以窃取敏感的头数据（例如cookie、身份验证令牌）或敏感的POST数据（例如凭据）。",
+        "solution_en": "Upgrade to Jetty 9.2.9.v20150224 or later. For Jetty 9.3.x, contact the vendor for a solution.",
+        "solution_cn": "升级至Jetty 9.2.9.v20150224或更高版本。对于Jetty 9.3.x，请联系供应商寻求解决方案。",
+        "cve": "CVE-2015-2080"
     }
 }

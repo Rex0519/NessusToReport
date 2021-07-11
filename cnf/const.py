@@ -41,12 +41,12 @@ translate_status = True
 translate_sem = 9  # 协程限制
 translate_qps = 9  # qps限制
 translate_baidu_url = "http://api.fanyi.baidu.com/api/trans/vip/translate"
-translate_baidu_appid = "XXXXXX"
-translate_baidu_secret = "XXXXXX"
+translate_baidu_appid = "20210705000880345"
+translate_baidu_secret = "oV2ztNbijfVrYhN_hOIV"
 
 translate_youdao_url = "https://openapi.youdao.com/api"
-translate_youdao_appkey = "xxxxxxxx"
-translate_youdao_appsecret = "xxxxxxxx"
+translate_youdao_appkey = "0bbdc387646a465a"
+translate_youdao_appsecret = "SHmAqi5KhCGXVCsZYqhMlrr5D5cVJx5S"
 
 translate_order = {
     "name_en": "name_cn",
